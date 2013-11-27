@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Candidate < ActiveRecord::Base
+class Candidate <  ActiveRecord::Base
   attr_accessible :course, :description, :email, :name
   attr_accessible :curriculum, :curriculum_content_type, :curriculum_file_name, :curriculum_file_size
 

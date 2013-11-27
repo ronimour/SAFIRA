@@ -1,10 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe Cashier do
-
-  it {should belongs_to :enterprise}
-
-  it {should has_many :releases}
-
+describe Phone do
+  
 end
