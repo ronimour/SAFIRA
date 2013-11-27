@@ -26,7 +26,7 @@ gem 'paperclip'
 
 gem 'gravatar_image_tag', '>= 0.1.0'
 
-gem 'paperclip-dropbox'
+gem 'paperclip-dropbox', '>= 1.1.7'
 
 gem 'virtus'
 
