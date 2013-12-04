@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class FeedbackController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   def show
     @feedback = Feedback.where(
