@@ -6,7 +6,7 @@ class EntrepreneursController < ApplicationController
     @entrepreneurs = Entrepreneur.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html index.html.erb
       format.json { render json: @entrepreneurs }
     end
   end
@@ -17,7 +17,7 @@ class EntrepreneursController < ApplicationController
     @entrepreneur = Entrepreneur.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html show.html.erb
       format.json { render json: @entrepreneur }
     end
   end
@@ -28,7 +28,7 @@ class EntrepreneursController < ApplicationController
     @entrepreneur = Entrepreneur.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html new.html.erb
       format.json { render json: @entrepreneur }
     end
   end

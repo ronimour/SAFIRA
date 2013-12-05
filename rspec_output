@@ -1,33 +1,60 @@
-................FFFFFFFFFFFFFFFFFF*FFFFFFFFFFFFFFFFFFFF.......FFFFFFFFFF*FFF.FFFFFFFFFFFFFFFFFFFFFF**FF*
+FFFFFFFFF*F*FFFFFFFFF*FFF*FFFFFFFFF.......*.FFFFFF
 
 Pending:
   ProcessStep add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/process_step_spec.rb
     # No reason given
     # ./spec/models/process_step_spec.rb:5
-  Entrepreneur add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/entrepreneur_spec.rb
-    # No reason given
-    # ./spec/models/entrepreneur_spec.rb:5
   Admin add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/admin_spec.rb
     # No reason given
     # ./spec/models/admin_spec.rb:5
-  CustomInfo add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/custom_info_spec.rb
+  Entrepreneur add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/entrepreneur_spec.rb
     # No reason given
-    # ./spec/models/custom_info_spec.rb:5
+    # ./spec/models/entrepreneur_spec.rb:5
   Feedback add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/feedback_spec.rb
     # No reason given
     # ./spec/models/feedback_spec.rb:5
+  CustomInfo add some examples to (or delete) /home/logan/workspace/SAFIRA/spec/models/custom_info_spec.rb
+    # No reason given
+    # ./spec/models/custom_info_spec.rb:5
 
 Failures:
 
-  1) CandidateMailer send_confirmation renders the body
-     Failure/Error: let(:mail) { CandidateMailer.send_confirmation }
-     ArgumentError:
-       wrong number of arguments (0 for 2)
-     # ./app/mailers/candidate_mailer.rb:10:in `send_confirmation'
-     # ./spec/mailers/candidate_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
-     # ./spec/mailers/candidate_mailer_spec.rb:15:in `block (3 levels) in <top (required)>'
+  1) ReleasesController routing routes to #update
+     Failure/Error: put("/releases/1").should route_to("releases#update", :id => "1")
+       No route matches "/releases/1"
+     # ./spec/routing/releases_routing_spec.rb:27:in `block (3 levels) in <top (required)>'
 
-  2) CandidateMailer send_confirmation renders the headers
+  2) ReleasesController routing routes to #new
+     Failure/Error: get("/releases/new").should route_to("releases#new")
+       No route matches "/releases/new"
+     # ./spec/routing/releases_routing_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+  3) ReleasesController routing routes to #create
+     Failure/Error: post("/releases").should route_to("releases#create")
+       No route matches "/releases"
+     # ./spec/routing/releases_routing_spec.rb:23:in `block (3 levels) in <top (required)>'
+
+  4) ReleasesController routing routes to #index
+     Failure/Error: get("/releases").should route_to("releases#index")
+       No route matches "/releases"
+     # ./spec/routing/releases_routing_spec.rb:7:in `block (3 levels) in <top (required)>'
+
+  5) ReleasesController routing routes to #edit
+     Failure/Error: get("/releases/1/edit").should route_to("releases#edit", :id => "1")
+       No route matches "/releases/1/edit"
+     # ./spec/routing/releases_routing_spec.rb:19:in `block (3 levels) in <top (required)>'
+
+  6) ReleasesController routing routes to #show
+     Failure/Error: get("/releases/1").should route_to("releases#show", :id => "1")
+       No route matches "/releases/1"
+     # ./spec/routing/releases_routing_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  7) ReleasesController routing routes to #destroy
+     Failure/Error: delete("/releases/1").should route_to("releases#destroy", :id => "1")
+       No route matches "/releases/1"
+     # ./spec/routing/releases_routing_spec.rb:31:in `block (3 levels) in <top (required)>'
+
+  8) CandidateMailer send_confirmation renders the headers
      Failure/Error: let(:mail) { CandidateMailer.send_confirmation }
      ArgumentError:
        wrong number of arguments (0 for 2)
@@ -35,526 +62,229 @@ Failures:
      # ./spec/mailers/candidate_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
      # ./spec/mailers/candidate_mailer_spec.rb:9:in `block (3 levels) in <top (required)>'
 
-  3) ReleasesController GET edit assigns the requested release as @release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:58:in `block (3 levels) in <top (required)>'
+  9) CandidateMailer send_confirmation renders the body
+     Failure/Error: let(:mail) { CandidateMailer.send_confirmation }
+     ArgumentError:
+       wrong number of arguments (0 for 2)
+     # ./app/mailers/candidate_mailer.rb:10:in `send_confirmation'
+     # ./spec/mailers/candidate_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
+     # ./spec/mailers/candidate_mailer_spec.rb:15:in `block (3 levels) in <top (required)>'
 
-  4) ReleasesController GET show assigns the requested release as @release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:43:in `block (3 levels) in <top (required)>'
-
-  5) ReleasesController GET index assigns all releases as @releases
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:35:in `block (3 levels) in <top (required)>'
-
-  6) ReleasesController GET new assigns a new release as @release
-     Failure/Error: get :new, {}, valid_session
-     ActionController::RoutingError:
-       No route matches {:controller=>"releases", :action=>"new"}
-     # ./spec/controllers/releases_controller_spec.rb:51:in `block (3 levels) in <top (required)>'
-
-  7) ReleasesController POST create with invalid params re-renders the 'new' template
-     Failure/Error: post :create, {:release => { "type_release" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:release=>{"type_release"=>"invalid value"}, :controller=>"releases", :action=>"create"}
-     # ./spec/controllers/releases_controller_spec.rb:95:in `block (4 levels) in <top (required)>'
-
-  8) ReleasesController POST create with invalid params assigns a newly created but unsaved release as @release
-     Failure/Error: post :create, {:release => { "type_release" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:release=>{"type_release"=>"invalid value"}, :controller=>"releases", :action=>"create"}
-     # ./spec/controllers/releases_controller_spec.rb:88:in `block (4 levels) in <top (required)>'
-
-  9) ReleasesController POST create with valid params assigns a newly created release as @release
-     Failure/Error: post :create, {:release => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:release=>{"type_release"=>"false"}, :controller=>"releases", :action=>"create"}
-     # ./spec/controllers/releases_controller_spec.rb:73:in `block (4 levels) in <top (required)>'
-
-  10) ReleasesController POST create with valid params creates a new Release
-     Failure/Error: post :create, {:release => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:release=>{"type_release"=>"false"}, :controller=>"releases", :action=>"create"}
-     # ./spec/controllers/releases_controller_spec.rb:68:in `block (5 levels) in <top (required)>'
-     # ./spec/controllers/releases_controller_spec.rb:67:in `block (4 levels) in <top (required)>'
-
-  11) ReleasesController POST create with valid params redirects to the created release
-     Failure/Error: post :create, {:release => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:release=>{"type_release"=>"false"}, :controller=>"releases", :action=>"create"}
-     # ./spec/controllers/releases_controller_spec.rb:79:in `block (4 levels) in <top (required)>'
-
-  12) ReleasesController PUT update with invalid params re-renders the 'edit' template
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:136:in `block (4 levels) in <top (required)>'
-
-  13) ReleasesController PUT update with invalid params assigns the release as @release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:128:in `block (4 levels) in <top (required)>'
-
-  14) ReleasesController PUT update with valid params assigns the requested release as @release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:114:in `block (4 levels) in <top (required)>'
-
-  15) ReleasesController PUT update with valid params updates the requested release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:104:in `block (4 levels) in <top (required)>'
-
-  16) ReleasesController PUT update with valid params redirects to the release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:120:in `block (4 levels) in <top (required)>'
-
-  17) ReleasesController DELETE destroy redirects to the releases list
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:154:in `block (3 levels) in <top (required)>'
-
-  18) ReleasesController DELETE destroy destroys the requested release
-     Failure/Error: release = Release.create! valid_attributes
-     ActiveRecord::RecordInvalid:
-       Inserção inválida
-     # ./spec/controllers/releases_controller_spec.rb:147:in `block (3 levels) in <top (required)>'
-
-  19) ReleasesController routing routes to #edit
-     Failure/Error: get("/releases/1/edit").should route_to("releases#edit", :id => "1")
-       No route matches "/releases/1/edit"
-     # ./spec/routing/releases_routing_spec.rb:19:in `block (3 levels) in <top (required)>'
-
-  20) ReleasesController routing routes to #new
-     Failure/Error: get("/releases/new").should route_to("releases#new")
-       No route matches "/releases/new"
-     # ./spec/routing/releases_routing_spec.rb:11:in `block (3 levels) in <top (required)>'
-
-  21) ReleasesController routing routes to #index
-     Failure/Error: get("/releases").should route_to("releases#index")
-       No route matches "/releases"
-     # ./spec/routing/releases_routing_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  22) ReleasesController routing routes to #show
-     Failure/Error: get("/releases/1").should route_to("releases#show", :id => "1")
-       No route matches "/releases/1"
-     # ./spec/routing/releases_routing_spec.rb:15:in `block (3 levels) in <top (required)>'
-
-  23) ReleasesController routing routes to #create
-     Failure/Error: post("/releases").should route_to("releases#create")
-       No route matches "/releases"
-     # ./spec/routing/releases_routing_spec.rb:23:in `block (3 levels) in <top (required)>'
-
-  24) ReleasesController routing routes to #update
-     Failure/Error: put("/releases/1").should route_to("releases#update", :id => "1")
-       No route matches "/releases/1"
-     # ./spec/routing/releases_routing_spec.rb:27:in `block (3 levels) in <top (required)>'
-
-  25) ReleasesController routing routes to #destroy
-     Failure/Error: delete("/releases/1").should route_to("releases#destroy", :id => "1")
-       No route matches "/releases/1"
-     # ./spec/routing/releases_routing_spec.rb:31:in `block (3 levels) in <top (required)>'
-
-  26) Release 
+  10) Release 
      Failure/Error: Releases.any_instance.stub(:save_attached_files).and_return(true)
      NameError:
        uninitialized constant Releases
      # ./spec/models/release_spec.rb:6:in `block (2 levels) in <top (required)>'
 
-  27) CandidatesController routing routes to #edit
-     Failure/Error: get("/candidates/1/edit").should route_to("candidates#edit", :id => "1")
-       No route matches "/candidates/1/edit"
-     # ./spec/routing/candidates_routing_spec.rb:20:in `block (3 levels) in <top (required)>'
-
-  28) CandidatesController routing routes to #new
-     Failure/Error: get("/candidates/new").should route_to("candidates#new")
-       No route matches "/candidates/new"
-     # ./spec/routing/candidates_routing_spec.rb:12:in `block (3 levels) in <top (required)>'
-
-  29) CandidatesController routing routes to #index
-     Failure/Error: get("/candidates").should route_to("candidates#index")
-       No route matches "/candidates"
-     # ./spec/routing/candidates_routing_spec.rb:8:in `block (3 levels) in <top (required)>'
-
-  30) CandidatesController routing routes to #show
-     Failure/Error: get("/candidates/1").should route_to("candidates#show", :id => "1")
-       No route matches "/candidates/1"
-     # ./spec/routing/candidates_routing_spec.rb:16:in `block (3 levels) in <top (required)>'
-
-  31) CandidatesController routing routes to #create
-     Failure/Error: post("/candidates").should route_to("candidates#create")
-       No route matches "/candidates"
-     # ./spec/routing/candidates_routing_spec.rb:24:in `block (3 levels) in <top (required)>'
-
-  32) CandidatesController routing routes to #update
-     Failure/Error: put("/candidates/1").should route_to("candidates#update", :id => "1")
-       No route matches "/candidates/1"
-     # ./spec/routing/candidates_routing_spec.rb:28:in `block (3 levels) in <top (required)>'
-
-  33) CandidatesController routing routes to #destroy
-     Failure/Error: delete("/candidates/1").should route_to("candidates#destroy", :id => "1")
-       No route matches "/candidates/1"
-     # ./spec/routing/candidates_routing_spec.rb:32:in `block (3 levels) in <top (required)>'
-
-  34) Candidate a candidate have to be authenticated
-     Failure/Error: candidato.confirm("oi").should be == false
-     NoMethodError:
-       undefined method `register_confirmed_at=' for nil:NilClass
-     # ./app/models/candidate.rb:26:in `confirm'
-     # ./spec/models/candidate_spec.rb:7:in `block (2 levels) in <top (required)>'
-
-  35) Login page should show error message when user/password is incorrect
-     Failure/Error: sign_up_with('emailnadaaver@gmail.com', 'senhanadaaver')
-     NoMethodError:
-       undefined method `sign_up_with' for #<RSpec::Core::ExampleGroup::Nested_10:0x00000006365028>
-     # ./spec/features/login_spec.rb:13:in `block (2 levels) in <top (required)>'
-
-  36) Login page should log on and redirect to selection processes page when user/password is correct
-     Failure/Error: sign_in(enterprise)
-     NoMethodError:
-       undefined method `sign_in' for #<RSpec::Core::ExampleGroup::Nested_10:0x00000006d17f58>
-     # ./spec/features/login_spec.rb:8:in `block (2 levels) in <top (required)>'
-
-  37) Ability a candidate have to be authenticated
+  11) Ability a candidate have to be authenticated
      Failure/Error: ability = build(:ability)
      ArgumentError:
        Factory not registered: ability
      # ./spec/models/ability_spec.rb:6:in `block (2 levels) in <top (required)>'
 
-  38) HumanResourcesController GET 'index' returns http success
-     Failure/Error: get 'index'
-     NoMethodError:
-       undefined method `entrepreneurs' for nil:NilClass
-     # ./app/controllers/human_resources_controller.rb:6:in `index'
-     # ./spec/controllers/human_resources_controller_spec.rb:8:in `block (3 levels) in <top (required)>'
-
-  39) EntrepreneursController routing routes to #edit
-     Failure/Error: get("/entrepreneurs/1/edit").should route_to("entrepreneurs#edit", :id => "1")
-       The recognized options <{"action"=>"edit", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"edit"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"edit"}> expected but was
-       <{"action"=>"edit", "controller"=>"human_resources", "id"=>"1"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:20:in `block (3 levels) in <top (required)>'
-
-  40) EntrepreneursController routing routes to #new
-     Failure/Error: get("/entrepreneurs/new").should route_to("entrepreneurs#new")
-       The recognized options <{"action"=>"new", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"new"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"controller"=>"entrepreneurs", "action"=>"new"}> expected but was
-       <{"action"=>"new", "controller"=>"human_resources"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:12:in `block (3 levels) in <top (required)>'
-
-  41) EntrepreneursController routing routes to #index
-     Failure/Error: get("/entrepreneurs").should route_to("entrepreneurs#index")
-       The recognized options <{"action"=>"index", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"index"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"controller"=>"entrepreneurs", "action"=>"index"}> expected but was
-       <{"action"=>"index", "controller"=>"human_resources"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:8:in `block (3 levels) in <top (required)>'
-
-  42) EntrepreneursController routing routes to #show
-     Failure/Error: get("/entrepreneurs/1").should route_to("entrepreneurs#show", :id => "1")
-       The recognized options <{"action"=>"show", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"show"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"show"}> expected but was
-       <{"action"=>"show", "controller"=>"human_resources", "id"=>"1"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:16:in `block (3 levels) in <top (required)>'
-
-  43) EntrepreneursController routing routes to #create
-     Failure/Error: post("/entrepreneurs").should route_to("entrepreneurs#create")
-       The recognized options <{"action"=>"create", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"create"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"controller"=>"entrepreneurs", "action"=>"create"}> expected but was
-       <{"action"=>"create", "controller"=>"human_resources"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:24:in `block (3 levels) in <top (required)>'
-
-  44) EntrepreneursController routing routes to #update
-     Failure/Error: put("/entrepreneurs/1").should route_to("entrepreneurs#update", :id => "1")
-       The recognized options <{"action"=>"update", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"update"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"update"}> expected but was
-       <{"action"=>"update", "controller"=>"human_resources", "id"=>"1"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:28:in `block (3 levels) in <top (required)>'
-
-  45) EntrepreneursController routing routes to #destroy
-     Failure/Error: delete("/entrepreneurs/1").should route_to("entrepreneurs#destroy", :id => "1")
-       The recognized options <{"action"=>"destroy", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"destroy"}>, difference: <{"controller"=>"entrepreneurs"}>.
-       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"destroy"}> expected but was
-       <{"action"=>"destroy", "controller"=>"human_resources", "id"=>"1"}>.
-     # ./spec/routing/entrepreneurs_routing_spec.rb:32:in `block (3 levels) in <top (required)>'
-
-  46) Releases GET /releases works! (now write some real specs)
+  12) Releases GET /releases works! (now write some real specs)
      Failure/Error: get releases_path
      NameError:
-       undefined local variable or method `releases_path' for #<RSpec::Core::ExampleGroup::Nested_25::Nested_1:0x00000006365208>
+       undefined local variable or method `releases_path' for #<RSpec::Core::ExampleGroup::Nested_16::Nested_1:0x00000005c238a0>
      # ./spec/requests/releases_spec.rb:7:in `block (3 levels) in <top (required)>'
 
-  47) FeedbackMailer public_feedback renders the body
-     Failure/Error: let(:mail) { FeedbackMailer.public_feedback }
-     NoMethodError:
-       undefined method `public_feedback' for FeedbackMailer:Class
-     # ./spec/mailers/feedback_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
-     # ./spec/mailers/feedback_mailer_spec.rb:15:in `block (3 levels) in <top (required)>'
+  13) CandidatesController routing routes to #update
+     Failure/Error: put("/candidates/1").should route_to("candidates#update", :id => "1")
+       No route matches "/candidates/1"
+     # ./spec/routing/candidates_routing_spec.rb:28:in `block (3 levels) in <top (required)>'
 
-  48) FeedbackMailer public_feedback renders the headers
+  14) CandidatesController routing routes to #new
+     Failure/Error: get("/candidates/new").should route_to("candidates#new")
+       No route matches "/candidates/new"
+     # ./spec/routing/candidates_routing_spec.rb:12:in `block (3 levels) in <top (required)>'
+
+  15) CandidatesController routing routes to #create
+     Failure/Error: post("/candidates").should route_to("candidates#create")
+       No route matches "/candidates"
+     # ./spec/routing/candidates_routing_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  16) CandidatesController routing routes to #index
+     Failure/Error: get("/candidates").should route_to("candidates#index")
+       No route matches "/candidates"
+     # ./spec/routing/candidates_routing_spec.rb:8:in `block (3 levels) in <top (required)>'
+
+  17) CandidatesController routing routes to #edit
+     Failure/Error: get("/candidates/1/edit").should route_to("candidates#edit", :id => "1")
+       No route matches "/candidates/1/edit"
+     # ./spec/routing/candidates_routing_spec.rb:20:in `block (3 levels) in <top (required)>'
+
+  18) CandidatesController routing routes to #show
+     Failure/Error: get("/candidates/1").should route_to("candidates#show", :id => "1")
+       No route matches "/candidates/1"
+     # ./spec/routing/candidates_routing_spec.rb:16:in `block (3 levels) in <top (required)>'
+
+  19) CandidatesController routing routes to #destroy
+     Failure/Error: delete("/candidates/1").should route_to("candidates#destroy", :id => "1")
+       No route matches "/candidates/1"
+     # ./spec/routing/candidates_routing_spec.rb:32:in `block (3 levels) in <top (required)>'
+
+  20) FeedbackMailer public_feedback renders the headers
      Failure/Error: let(:mail) { FeedbackMailer.public_feedback }
      NoMethodError:
        undefined method `public_feedback' for FeedbackMailer:Class
      # ./spec/mailers/feedback_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
      # ./spec/mailers/feedback_mailer_spec.rb:9:in `block (3 levels) in <top (required)>'
 
-  49) SelectionProcess should add candidate with a invalid candidate
-     Failure/Error: selection = create(:selection_process)
+  21) FeedbackMailer public_feedback renders the body
+     Failure/Error: let(:mail) { FeedbackMailer.public_feedback }
      NoMethodError:
-       undefined method `description=' for #<SelectionProcess:0x00000006c3d178>
-     # ./spec/models/selection_process_spec.rb:18:in `block (2 levels) in <top (required)>'
+       undefined method `public_feedback' for FeedbackMailer:Class
+     # ./spec/mailers/feedback_mailer_spec.rb:6:in `block (3 levels) in <top (required)>'
+     # ./spec/mailers/feedback_mailer_spec.rb:15:in `block (3 levels) in <top (required)>'
 
-  50) SelectionProcess should add candidate with a valid candidate
-     Failure/Error: selection = create(:selection_process)
+  22) Candidate a candidate have to be authenticated
+     Failure/Error: candidato.confirm("oi").should be == false
      NoMethodError:
-       undefined method `description=' for #<SelectionProcess:0x0000000532fa00>
-     # ./spec/models/selection_process_spec.rb:11:in `block (2 levels) in <top (required)>'
+       undefined method `register_confirmed_at=' for nil:NilClass
+     # ./app/models/candidate.rb:26:in `confirm'
+     # ./spec/models/candidate_spec.rb:7:in `block (2 levels) in <top (required)>'
 
-  51) SelectionProcess should always create a inscription step when created
-     Failure/Error: selection = build(:selection_process)
-     NoMethodError:
-       undefined method `description=' for #<SelectionProcess:0x00000005e4ea58>
-     # ./spec/models/selection_process_spec.rb:26:in `block (2 levels) in <top (required)>'
-
-  52) Cashier 
-     Failure/Error: it {should has_many :releases}
-     NoMethodError:
-       undefined method `has_many' for #<RSpec::Core::ExampleGroup::Nested_16:0x000000067745d8>
-     # ./spec/models/cashier_spec.rb:7:in `block (2 levels) in <top (required)>'
-
-  53) Cashier 
+  23) Cashier 
      Failure/Error: it {should belongs_to :enterprise}
      NoMethodError:
-       undefined method `belongs_to' for #<RSpec::Core::ExampleGroup::Nested_16:0x00000006ab3f78>
+       undefined method `belongs_to' for #<RSpec::Core::ExampleGroup::Nested_7:0x00000004ef7690>
      # ./spec/models/cashier_spec.rb:5:in `block (2 levels) in <top (required)>'
 
-  54) SpRegisterController GET 'register' returns http success
-     Failure/Error: get 'register'
-     ActionController::RoutingError:
-       No route matches {:controller=>"sp_register", :action=>"register"}
-     # ./spec/controllers/sp_register_controller_spec.rb:15:in `block (3 levels) in <top (required)>'
+  24) Cashier 
+     Failure/Error: it {should has_many :releases}
+     NoMethodError:
+       undefined method `has_many' for #<RSpec::Core::ExampleGroup::Nested_7:0x00000004f1a258>
+     # ./spec/models/cashier_spec.rb:7:in `block (2 levels) in <top (required)>'
 
-  55) SpRegisterController GET 'show_process' returns http success
-     Failure/Error: get 'show_process'
-     ActionController::RoutingError:
-       No route matches {:controller=>"sp_register", :action=>"show_process"}
-     # ./spec/controllers/sp_register_controller_spec.rb:8:in `block (3 levels) in <top (required)>'
+  25) EntrepreneursController routing routes to #update
+     Failure/Error: put("/entrepreneurs/1").should route_to("entrepreneurs#update", :id => "1")
+       The recognized options <{"action"=>"update", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"update"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"update"}> expected but was
+       <{"action"=>"update", "controller"=>"human_resources", "id"=>"1"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:28:in `block (3 levels) in <top (required)>'
 
-  56) ReportsController GET 'show' returns http success
-     Failure/Error: get 'show'
-     ActionController::RoutingError:
-       No route matches {:controller=>"reports", :action=>"show"}
-     # ./spec/controllers/reports_controller_spec.rb:8:in `block (3 levels) in <top (required)>'
+  26) EntrepreneursController routing routes to #new
+     Failure/Error: get("/entrepreneurs/new").should route_to("entrepreneurs#new")
+       The recognized options <{"action"=>"new", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"new"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"controller"=>"entrepreneurs", "action"=>"new"}> expected but was
+       <{"action"=>"new", "controller"=>"human_resources"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:12:in `block (3 levels) in <top (required)>'
 
-  57) EntrepreneursController GET edit assigns the requested entrepreneur as @entrepreneur
-     Failure/Error: get :edit, {:id => entrepreneur.to_param}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :controller=>"entrepreneurs", :action=>"edit"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:60:in `block (3 levels) in <top (required)>'
+  27) EntrepreneursController routing routes to #create
+     Failure/Error: post("/entrepreneurs").should route_to("entrepreneurs#create")
+       The recognized options <{"action"=>"create", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"create"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"controller"=>"entrepreneurs", "action"=>"create"}> expected but was
+       <{"action"=>"create", "controller"=>"human_resources"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:24:in `block (3 levels) in <top (required)>'
 
-  58) EntrepreneursController GET show assigns the requested entrepreneur as @entrepreneur
-     Failure/Error: get :show, {:id => entrepreneur.to_param}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :controller=>"entrepreneurs", :action=>"show"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:45:in `block (3 levels) in <top (required)>'
+  28) EntrepreneursController routing routes to #index
+     Failure/Error: get("/entrepreneurs").should route_to("entrepreneurs#index")
+       The recognized options <{"action"=>"index", "controller"=>"human_resources"}> did not match <{"controller"=>"entrepreneurs", "action"=>"index"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"controller"=>"entrepreneurs", "action"=>"index"}> expected but was
+       <{"action"=>"index", "controller"=>"human_resources"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:8:in `block (3 levels) in <top (required)>'
 
-  59) EntrepreneursController GET index assigns all entrepreneurs as @entrepreneurs
-     Failure/Error: get :index, {}, valid_session
-     ActionController::RoutingError:
-       No route matches {:controller=>"entrepreneurs"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:37:in `block (3 levels) in <top (required)>'
+  29) EntrepreneursController routing routes to #edit
+     Failure/Error: get("/entrepreneurs/1/edit").should route_to("entrepreneurs#edit", :id => "1")
+       The recognized options <{"action"=>"edit", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"edit"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"edit"}> expected but was
+       <{"action"=>"edit", "controller"=>"human_resources", "id"=>"1"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:20:in `block (3 levels) in <top (required)>'
 
-  60) EntrepreneursController GET new assigns a new entrepreneur as @entrepreneur
-     Failure/Error: get :new, {}, valid_session
-     ActionController::RoutingError:
-       No route matches {:controller=>"entrepreneurs", :action=>"new"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:52:in `block (3 levels) in <top (required)>'
+  30) EntrepreneursController routing routes to #show
+     Failure/Error: get("/entrepreneurs/1").should route_to("entrepreneurs#show", :id => "1")
+       The recognized options <{"action"=>"show", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"show"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"show"}> expected but was
+       <{"action"=>"show", "controller"=>"human_resources", "id"=>"1"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:16:in `block (3 levels) in <top (required)>'
 
-  61) EntrepreneursController POST create with invalid params re-renders the 'new' template
-     Failure/Error: post :create, {:entrepreneur => { "name" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:entrepreneur=>{"name"=>"invalid value"}, :controller=>"entrepreneurs", :action=>"create"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:96:in `block (4 levels) in <top (required)>'
+  31) EntrepreneursController routing routes to #destroy
+     Failure/Error: delete("/entrepreneurs/1").should route_to("entrepreneurs#destroy", :id => "1")
+       The recognized options <{"action"=>"destroy", "controller"=>"human_resources", "id"=>"1"}> did not match <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"destroy"}>, difference: <{"controller"=>"entrepreneurs"}>.
+       <{"id"=>"1", "controller"=>"entrepreneurs", "action"=>"destroy"}> expected but was
+       <{"action"=>"destroy", "controller"=>"human_resources", "id"=>"1"}>.
+     # ./spec/routing/entrepreneurs_routing_spec.rb:32:in `block (3 levels) in <top (required)>'
 
-  62) EntrepreneursController POST create with invalid params assigns a newly created but unsaved entrepreneur as @entrepreneur
-     Failure/Error: post :create, {:entrepreneur => { "name" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:entrepreneur=>{"name"=>"invalid value"}, :controller=>"entrepreneurs", :action=>"create"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:89:in `block (4 levels) in <top (required)>'
-
-  63) EntrepreneursController POST create with valid params assigns a newly created entrepreneur as @entrepreneur
-     Failure/Error: post :create, {:entrepreneur => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"create"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:74:in `block (4 levels) in <top (required)>'
-
-  64) EntrepreneursController POST create with valid params creates a new Entrepreneur
-     Failure/Error: post :create, {:entrepreneur => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"create"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:69:in `block (5 levels) in <top (required)>'
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:68:in `block (4 levels) in <top (required)>'
-
-  65) EntrepreneursController POST create with valid params redirects to the created entrepreneur
-     Failure/Error: post :create, {:entrepreneur => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"create"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:80:in `block (4 levels) in <top (required)>'
-
-  66) EntrepreneursController PUT update with invalid params re-renders the 'edit' template
-     Failure/Error: put :update, {:id => entrepreneur.to_param, :entrepreneur => { "name" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :entrepreneur=>{"name"=>"invalid value"}, :controller=>"entrepreneurs", :action=>"update"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:140:in `block (4 levels) in <top (required)>'
-
-  67) EntrepreneursController PUT update with invalid params assigns the entrepreneur as @entrepreneur
-     Failure/Error: put :update, {:id => entrepreneur.to_param, :entrepreneur => { "name" => "invalid value" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :entrepreneur=>{"name"=>"invalid value"}, :controller=>"entrepreneurs", :action=>"update"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:132:in `block (4 levels) in <top (required)>'
-
-  68) EntrepreneursController PUT update with valid params assigns the requested entrepreneur as @entrepreneur
-     Failure/Error: put :update, {:id => entrepreneur.to_param, :entrepreneur => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"update"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:116:in `block (4 levels) in <top (required)>'
-
-  69) EntrepreneursController PUT update with valid params updates the requested entrepreneur
-     Failure/Error: put :update, {:id => entrepreneur.to_param, :entrepreneur => { "name" => "MyString" }}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"update"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:111:in `block (4 levels) in <top (required)>'
-
-  70) EntrepreneursController PUT update with valid params redirects to the entrepreneur
-     Failure/Error: put :update, {:id => entrepreneur.to_param, :entrepreneur => valid_attributes}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :entrepreneur=>{"name"=>"MyString"}, :controller=>"entrepreneurs", :action=>"update"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:122:in `block (4 levels) in <top (required)>'
-
-  71) EntrepreneursController DELETE destroy redirects to the entrepreneurs list
-     Failure/Error: delete :destroy, {:id => entrepreneur.to_param}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :controller=>"entrepreneurs", :action=>"destroy"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:156:in `block (3 levels) in <top (required)>'
-
-  72) EntrepreneursController DELETE destroy destroys the requested entrepreneur
-     Failure/Error: delete :destroy, {:id => entrepreneur.to_param}, valid_session
-     ActionController::RoutingError:
-       No route matches {:id=>"1", :controller=>"entrepreneurs", :action=>"destroy"}
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:150:in `block (4 levels) in <top (required)>'
-     # ./spec/controllers/entrepreneurs_controller_spec.rb:149:in `block (3 levels) in <top (required)>'
-
-  73) ProcessStepsController GET 'create' returns http success
-     Failure/Error: get 'create'
-     ActionController::RoutingError:
-       No route matches {:controller=>"process_steps", :action=>"create"}
-     # ./spec/controllers/process_steps_controller_spec.rb:8:in `block (3 levels) in <top (required)>'
-
-  74) Entrepreneurs GET /entrepreneurs works! (now write some real specs)
+  32) Entrepreneurs GET /entrepreneurs works! (now write some real specs)
      Failure/Error: get entrepreneurs_path
      NameError:
-       undefined local variable or method `entrepreneurs_path' for #<RSpec::Core::ExampleGroup::Nested_24::Nested_1:0x00000006eaea88>
+       undefined local variable or method `entrepreneurs_path' for #<RSpec::Core::ExampleGroup::Nested_15::Nested_1:0x00000004ea4d28>
      # ./spec/requests/entrepreneurs_spec.rb:8:in `block (3 levels) in <top (required)>'
 
-  75) FeedbackController GET 'eval_candidate' returns http success
-     Failure/Error: get 'eval_candidate'
-     ActionController::RoutingError:
-       No route matches {:controller=>"feedback", :action=>"eval_candidate"}
-     # ./spec/controllers/feedback_controller_spec.rb:8:in `block (3 levels) in <top (required)>'
+  33) SelectionProcess should add candidate with a valid candidate
+     Failure/Error: selection = create(:selection_process)
+     NoMethodError:
+       undefined method `description=' for #<SelectionProcess:0x00000004f14a38>
+     # ./spec/models/selection_process_spec.rb:11:in `block (2 levels) in <top (required)>'
 
-Finished in 3 minutes 33.91 seconds
-104 examples, 75 failures, 5 pending
+  34) SelectionProcess should always create a inscription step when created
+     Failure/Error: selection = build(:selection_process)
+     NoMethodError:
+       undefined method `description=' for #<SelectionProcess:0x00000005d41f98>
+     # ./spec/models/selection_process_spec.rb:26:in `block (2 levels) in <top (required)>'
+
+  35) SelectionProcess should add candidate with a invalid candidate
+     Failure/Error: selection = create(:selection_process)
+     NoMethodError:
+       undefined method `description=' for #<SelectionProcess:0x00000005f8dba8>
+     # ./spec/models/selection_process_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+  36) Login page should log on and redirect to selection processes page when user/password is correct
+     Failure/Error: sign_in(enterprise)
+     NoMethodError:
+       undefined method `sign_in' for #<RSpec::Core::ExampleGroup::Nested_1:0x00000005b3f5d8>
+     # ./spec/features/login_spec.rb:8:in `block (2 levels) in <top (required)>'
+
+  37) Login page should show error message when user/password is incorrect
+     Failure/Error: sign_up_with('emailnadaaver@gmail.com', 'senhanadaaver')
+     NoMethodError:
+       undefined method `sign_up_with' for #<RSpec::Core::ExampleGroup::Nested_1:0x0000000590b578>
+     # ./spec/features/login_spec.rb:13:in `block (2 levels) in <top (required)>'
+
+Finished in 1 minute 34.68 seconds
+50 examples, 37 failures, 5 pending
 
 Failed examples:
 
-rspec ./spec/mailers/candidate_mailer_spec.rb:14 # CandidateMailer send_confirmation renders the body
-rspec ./spec/mailers/candidate_mailer_spec.rb:8 # CandidateMailer send_confirmation renders the headers
-rspec ./spec/controllers/releases_controller_spec.rb:57 # ReleasesController GET edit assigns the requested release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:42 # ReleasesController GET show assigns the requested release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:34 # ReleasesController GET index assigns all releases as @releases
-rspec ./spec/controllers/releases_controller_spec.rb:50 # ReleasesController GET new assigns a new release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:92 # ReleasesController POST create with invalid params re-renders the 'new' template
-rspec ./spec/controllers/releases_controller_spec.rb:85 # ReleasesController POST create with invalid params assigns a newly created but unsaved release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:72 # ReleasesController POST create with valid params assigns a newly created release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:66 # ReleasesController POST create with valid params creates a new Release
-rspec ./spec/controllers/releases_controller_spec.rb:78 # ReleasesController POST create with valid params redirects to the created release
-rspec ./spec/controllers/releases_controller_spec.rb:135 # ReleasesController PUT update with invalid params re-renders the 'edit' template
-rspec ./spec/controllers/releases_controller_spec.rb:127 # ReleasesController PUT update with invalid params assigns the release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:113 # ReleasesController PUT update with valid params assigns the requested release as @release
-rspec ./spec/controllers/releases_controller_spec.rb:103 # ReleasesController PUT update with valid params updates the requested release
-rspec ./spec/controllers/releases_controller_spec.rb:119 # ReleasesController PUT update with valid params redirects to the release
-rspec ./spec/controllers/releases_controller_spec.rb:153 # ReleasesController DELETE destroy redirects to the releases list
-rspec ./spec/controllers/releases_controller_spec.rb:146 # ReleasesController DELETE destroy destroys the requested release
-rspec ./spec/routing/releases_routing_spec.rb:18 # ReleasesController routing routes to #edit
-rspec ./spec/routing/releases_routing_spec.rb:10 # ReleasesController routing routes to #new
-rspec ./spec/routing/releases_routing_spec.rb:6 # ReleasesController routing routes to #index
-rspec ./spec/routing/releases_routing_spec.rb:14 # ReleasesController routing routes to #show
-rspec ./spec/routing/releases_routing_spec.rb:22 # ReleasesController routing routes to #create
 rspec ./spec/routing/releases_routing_spec.rb:26 # ReleasesController routing routes to #update
+rspec ./spec/routing/releases_routing_spec.rb:10 # ReleasesController routing routes to #new
+rspec ./spec/routing/releases_routing_spec.rb:22 # ReleasesController routing routes to #create
+rspec ./spec/routing/releases_routing_spec.rb:6 # ReleasesController routing routes to #index
+rspec ./spec/routing/releases_routing_spec.rb:18 # ReleasesController routing routes to #edit
+rspec ./spec/routing/releases_routing_spec.rb:14 # ReleasesController routing routes to #show
 rspec ./spec/routing/releases_routing_spec.rb:30 # ReleasesController routing routes to #destroy
+rspec ./spec/mailers/candidate_mailer_spec.rb:8 # CandidateMailer send_confirmation renders the headers
+rspec ./spec/mailers/candidate_mailer_spec.rb:14 # CandidateMailer send_confirmation renders the body
 rspec ./spec/models/release_spec.rb:9 # Release 
-rspec ./spec/routing/candidates_routing_spec.rb:19 # CandidatesController routing routes to #edit
-rspec ./spec/routing/candidates_routing_spec.rb:11 # CandidatesController routing routes to #new
-rspec ./spec/routing/candidates_routing_spec.rb:7 # CandidatesController routing routes to #index
-rspec ./spec/routing/candidates_routing_spec.rb:15 # CandidatesController routing routes to #show
-rspec ./spec/routing/candidates_routing_spec.rb:23 # CandidatesController routing routes to #create
-rspec ./spec/routing/candidates_routing_spec.rb:27 # CandidatesController routing routes to #update
-rspec ./spec/routing/candidates_routing_spec.rb:31 # CandidatesController routing routes to #destroy
-rspec ./spec/models/candidate_spec.rb:5 # Candidate a candidate have to be authenticated
-rspec ./spec/features/login_spec.rb:12 # Login page should show error message when user/password is incorrect
-rspec ./spec/features/login_spec.rb:6 # Login page should log on and redirect to selection processes page when user/password is correct
 rspec ./spec/models/ability_spec.rb:5 # Ability a candidate have to be authenticated
-rspec ./spec/controllers/human_resources_controller_spec.rb:7 # HumanResourcesController GET 'index' returns http success
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:19 # EntrepreneursController routing routes to #edit
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:11 # EntrepreneursController routing routes to #new
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:7 # EntrepreneursController routing routes to #index
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:15 # EntrepreneursController routing routes to #show
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:23 # EntrepreneursController routing routes to #create
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:27 # EntrepreneursController routing routes to #update
-rspec ./spec/routing/entrepreneurs_routing_spec.rb:31 # EntrepreneursController routing routes to #destroy
 rspec ./spec/requests/releases_spec.rb:5 # Releases GET /releases works! (now write some real specs)
-rspec ./spec/mailers/feedback_mailer_spec.rb:14 # FeedbackMailer public_feedback renders the body
+rspec ./spec/routing/candidates_routing_spec.rb:27 # CandidatesController routing routes to #update
+rspec ./spec/routing/candidates_routing_spec.rb:11 # CandidatesController routing routes to #new
+rspec ./spec/routing/candidates_routing_spec.rb:23 # CandidatesController routing routes to #create
+rspec ./spec/routing/candidates_routing_spec.rb:7 # CandidatesController routing routes to #index
+rspec ./spec/routing/candidates_routing_spec.rb:19 # CandidatesController routing routes to #edit
+rspec ./spec/routing/candidates_routing_spec.rb:15 # CandidatesController routing routes to #show
+rspec ./spec/routing/candidates_routing_spec.rb:31 # CandidatesController routing routes to #destroy
 rspec ./spec/mailers/feedback_mailer_spec.rb:8 # FeedbackMailer public_feedback renders the headers
-rspec ./spec/models/selection_process_spec.rb:17 # SelectionProcess should add candidate with a invalid candidate
+rspec ./spec/mailers/feedback_mailer_spec.rb:14 # FeedbackMailer public_feedback renders the body
+rspec ./spec/models/candidate_spec.rb:5 # Candidate a candidate have to be authenticated
+rspec ./spec/models/cashier_spec.rb:5 # Cashier 
+rspec ./spec/models/cashier_spec.rb:7 # Cashier 
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:27 # EntrepreneursController routing routes to #update
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:11 # EntrepreneursController routing routes to #new
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:23 # EntrepreneursController routing routes to #create
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:7 # EntrepreneursController routing routes to #index
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:19 # EntrepreneursController routing routes to #edit
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:15 # EntrepreneursController routing routes to #show
+rspec ./spec/routing/entrepreneurs_routing_spec.rb:31 # EntrepreneursController routing routes to #destroy
+rspec ./spec/requests/entrepreneurs_spec.rb:6 # Entrepreneurs GET /entrepreneurs works! (now write some real specs)
 rspec ./spec/models/selection_process_spec.rb:10 # SelectionProcess should add candidate with a valid candidate
 rspec ./spec/models/selection_process_spec.rb:25 # SelectionProcess should always create a inscription step when created
-rspec ./spec/models/cashier_spec.rb:7 # Cashier 
-rspec ./spec/models/cashier_spec.rb:5 # Cashier 
-rspec ./spec/controllers/sp_register_controller_spec.rb:14 # SpRegisterController GET 'register' returns http success
-rspec ./spec/controllers/sp_register_controller_spec.rb:7 # SpRegisterController GET 'show_process' returns http success
-rspec ./spec/controllers/reports_controller_spec.rb:7 # ReportsController GET 'show' returns http success
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:58 # EntrepreneursController GET edit assigns the requested entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:43 # EntrepreneursController GET show assigns the requested entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:35 # EntrepreneursController GET index assigns all entrepreneurs as @entrepreneurs
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:51 # EntrepreneursController GET new assigns a new entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:93 # EntrepreneursController POST create with invalid params re-renders the 'new' template
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:86 # EntrepreneursController POST create with invalid params assigns a newly created but unsaved entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:73 # EntrepreneursController POST create with valid params assigns a newly created entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:67 # EntrepreneursController POST create with valid params creates a new Entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:79 # EntrepreneursController POST create with valid params redirects to the created entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:136 # EntrepreneursController PUT update with invalid params re-renders the 'edit' template
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:128 # EntrepreneursController PUT update with invalid params assigns the entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:114 # EntrepreneursController PUT update with valid params assigns the requested entrepreneur as @entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:104 # EntrepreneursController PUT update with valid params updates the requested entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:120 # EntrepreneursController PUT update with valid params redirects to the entrepreneur
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:154 # EntrepreneursController DELETE destroy redirects to the entrepreneurs list
-rspec ./spec/controllers/entrepreneurs_controller_spec.rb:147 # EntrepreneursController DELETE destroy destroys the requested entrepreneur
-rspec ./spec/controllers/process_steps_controller_spec.rb:7 # ProcessStepsController GET 'create' returns http success
-rspec ./spec/requests/entrepreneurs_spec.rb:6 # Entrepreneurs GET /entrepreneurs works! (now write some real specs)
-rspec ./spec/controllers/feedback_controller_spec.rb:7 # FeedbackController GET 'eval_candidate' returns http success
+rspec ./spec/models/selection_process_spec.rb:17 # SelectionProcess should add candidate with a invalid candidate
+rspec ./spec/features/login_spec.rb:6 # Login page should log on and redirect to selection processes page when user/password is correct
+rspec ./spec/features/login_spec.rb:12 # Login page should show error message when user/password is incorrect
 
-Randomized with seed 4720
+Randomized with seed 30248
 
-Coverage report generated for RSpec to /home/logan/workspace/SAFIRA/coverage. 227 / 500 LOC (45.4%) covered.
+Coverage report generated for RSpec to /home/logan/workspace/SAFIRA/coverage. 195 / 500 LOC (39.0%) covered.
 [33m[Coveralls] Outside the Travis environment, not sending data.[0m
